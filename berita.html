@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forkomtiknas.id — Berita & Opini</title>
+  <meta name="description" content="Portal resmi Forum Komunikasi Teknologi Informasi Kesehatan Nasional — pusat informasi, kolaborasi, dan publikasi TI Kesehatan Indonesia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Plus Jakarta Sans', 'sans-serif'] },
+        extend: {
+          colors: {
+            primary: { 50:'#eff6ff', 100:'#dbeafe', 200:'#bfdbfe', 600:'#2563eb', 700:'#1d4ed8', 800:'#1e40af', 900:'#1e3a8a' },
+            teal:    { 400:'#2dd4bf', 500:'#14b8a6', 600:'#0d9488', 700:'#0f766e' },
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s cubic-bezier(0.16,1,0.3,1) forwards',
+            'slide-up':'slideUp 0.5s cubic-bezier(0.16,1,0.3,1) forwards',
+          },
+          keyframes: {
+            fadeIn:  { '0%':{ opacity:'0', transform:'translateY(10px)' }, '100%':{ opacity:'1', transform:'translateY(0)' } },
+            slideUp: { '0%':{ opacity:'0', transform:'translateY(20px)' }, '100%':{ opacity:'1', transform:'translateY(0)' } },
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    * { touch-action: manipulation; }
+    button, a { min-height: 44px; display: inline-flex; align-items: center; }
+    body { -webkit-font-smoothing: antialiased; }
+    .line-clamp-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    .line-clamp-3 { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800">
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
+
+    const IconBase = ({ children, className }) => (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+           strokeLinejoin="round" className={className}>{children}</svg>
+    );
+    const MenuIcon = () => <IconBase><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></IconBase>;
+    const XIcon   = () => <IconBase><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></IconBase>;
+
+    const NAV_LINKS = [
+      { label:'Beranda',     href:'index.html' },
+      { label:'Tentang',     href:'tentang.html' },
+      { label:'Keanggotaan', href:'keanggotaan.html' },
+      { label:'Publikasi',   href:'publikasi.html' },
+      { label:'Kegiatan',    href:'kegiatan.html' },
+      { label:'Berita',      href:'berita.html' },
+      { label:'Kontak',      href:'kontak.html' },
+    ];
+
+    const Header = ({ activePage }) => {
+      const [open, setOpen] = useState(false);
+      return (
+        <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
+              <a href="index.html" className="flex items-center gap-3 min-h-0">
+                <div className="w-9 h-9 bg-primary-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-display font-bold text-sm">Fk</span>
+                </div>
+                <div className="leading-tight">
+                  <div className="font-display font-bold text-primary-900 text-sm">Forkomtiknas</div>
+                  <div className="text-xs text-slate-500 hidden sm:block">Forum TI Kesehatan Nasional</div>
+                </div>
+              </a>
+              <nav className="hidden md:flex items-center gap-1">
+                {NAV_LINKS.map(l => (
+                  <a key={l.href} href={l.href}
+                     className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors min-h-0 ${
+                       activePage === l.href
+                         ? 'bg-primary-50 text-primary-800'
+                         : 'text-slate-600 hover:text-primary-800 hover:bg-slate-100'
+                     }`}>{l.label}</a>
+                ))}
+                <a href="keanggotaan.html"
+                   className="ml-2 px-4 py-2 bg-primary-800 text-white rounded-lg text-sm font-semibold hover:bg-primary-900 transition-colors min-h-0">
+                  Daftar Anggota
+                </a>
+              </nav>
+              <button onClick={() => setOpen(!open)} className="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 min-h-0">
+                {open ? <XIcon /> : <MenuIcon />}
+              </button>
+            </div>
+          </div>
+          <div className={`md:hidden transition-all duration-300 overflow-hidden ${open ? 'max-h-96' : 'max-h-0'}`}>
+            <div className="px-4 py-3 border-t border-slate-100 space-y-1 bg-white">
+              {NAV_LINKS.map(l => (
+                <a key={l.href} href={l.href}
+                   className={`block px-3 py-2 rounded-lg text-sm font-medium min-h-0 ${
+                     activePage === l.href ? 'bg-primary-50 text-primary-800' : 'text-slate-600'
+                   }`}>{l.label}</a>
+              ))}
+              <a href="keanggotaan.html" className="block px-3 py-2 bg-primary-800 text-white rounded-lg text-sm font-semibold text-center mt-2 min-h-0">
+                Daftar Anggota
+              </a>
+            </div>
+          </div>
+        </header>
+      );
+    };
+
+    const Footer = () => (
+      <footer className="bg-primary-900 text-white mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <span className="font-display font-bold text-white text-sm">Fk</span>
+                </div>
+                <div>
+                  <div className="font-display font-bold text-white">Forkomtiknas.id</div>
+                  <div className="text-primary-200 text-xs">Forum Komunikasi TI Kesehatan Nasional</div>
+                </div>
+              </div>
+              <p className="text-slate-300 text-sm leading-relaxed max-w-sm">
+                Wadah kolaborasi nasional para praktisi, akademisi, pengembang teknologi,
+                dan regulator dalam mengakselerasi transformasi digital kesehatan Indonesia.
+              </p>
+              <div className="flex gap-2 mt-4 flex-wrap">
+                {['Twitter/X','LinkedIn','YouTube','Instagram'].map(s => (
+                  <a key={s} href="#" className="text-xs bg-white/10 px-3 py-1 rounded-full hover:bg-white/20 transition-colors min-h-0">{s}</a>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 className="font-semibold text-sm mb-3">Navigasi</h4>
+              <ul className="space-y-2">
+                {[['Beranda','index'],['Tentang Kami','tentang'],['Keanggotaan','keanggotaan'],
+                  ['Publikasi','publikasi'],['Kegiatan','kegiatan'],['Berita','berita'],['Kontak','kontak']
+                ].map(([label,slug]) => (
+                  <li key={slug}><a href={`${slug}.html`} className="text-slate-300 text-sm hover:text-white transition-colors">{label}</a></li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-sm mb-3">Kontak</h4>
+              <ul className="space-y-2 text-slate-300 text-sm">
+                <li>Sekretariat Forkomtiknas</li>
+                <li>Gedung Kemenkes RI, Jakarta</li>
+                <li>info@forkomtiknas.id</li>
+                <li>+62 21 5201590</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-slate-400 text-sm">
+            <span>© 2026 Forkomtiknas. Seluruh hak cipta dilindungi.</span>
+            <span>Kebijakan Privasi · Syarat Penggunaan</span>
+          </div>
+        </div>
+      </footer>
+    );
+
+    // ── DATA ──────────────────────────────────────────────────────────────────
+    const ARTIKEL = [
+      { id:1, tipe:'Berita', kategori:'Kebijakan', tanggal:'3 Agt 2026', penulis:'Tim Redaksi', judul:'Kemenkes Rilis Roadmap Interoperabilitas SATUSEHAT 2026–2030', excerpt:'Roadmap baru menetapkan target 100% rumah sakit tipe A dan B terintegrasi platform SATUSEHAT pada akhir 2028, dengan milestone kuartalan yang terukur dan dukungan teknis dari Kemenkes.', warna:'bg-blue-100 text-blue-700', featured:true },
+      { id:2, tipe:'Riset', kategori:'Riset', tanggal:'28 Jul 2026', penulis:'Dr. Rina Kusuma', judul:'Digitalisasi Rekam Medis Kurangi Kesalahan Medis 34% di 12 RSUD', excerpt:'Studi multicenter yang melibatkan 12 RSUD di 6 provinsi menunjukkan penurunan signifikan kejadian adverse event pascaimplementasi sistem EMR terintegrasi.', warna:'bg-teal-100 text-teal-700', featured:false },
+      { id:3, tipe:'Regulasi', kategori:'Regulasi', tanggal:'20 Jul 2026', penulis:'Tim Redaksi', judul:'BPJS Kesehatan Wajibkan Klaim Digital Berbasis INA-CBGs Mulai 2027', excerpt:'Seluruh fasilitas kesehatan tingkat lanjutan diwajibkan menggunakan sistem klaim digital yang kompatibel dengan API BPJS Kesehatan mulai 1 Januari 2027.', warna:'bg-purple-100 text-purple-700', featured:false },
+      { id:4, tipe:'Opini', kategori:'Opini Pakar', tanggal:'15 Jul 2026', penulis:'Prof. Hendra Wijaya, Ph.D', judul:'Mengapa Indonesia Perlu Standar Data Kesehatan Nasional yang Kuat', excerpt:'Dalam ekosistem digital kesehatan yang semakin kompleks, standarisasi data bukan sekadar pilihan teknis — ia adalah fondasi keselamatan pasien dan efisiensi sistem.', warna:'bg-amber-100 text-amber-700', featured:false },
+      { id:5, tipe:'Berita', kategori:'Teknologi', tanggal:'10 Jul 2026', penulis:'Tim Redaksi', judul:'Pilot Project Telemedicine di 50 Puskesmas Terpencil Berhasil Kurangi Rujukan 28%', excerpt:'Program telemedicine berbasis satelit yang didukung Kemenkes dan Kominfo berhasil menjangkau 50 puskesmas di daerah 3T dengan hasil yang melampaui target awal.', warna:'bg-green-100 text-green-700', featured:false },
+      { id:6, tipe:'Press Release', kategori:'Press Release', tanggal:'5 Jul 2026', penulis:'Humas Forkomtiknas', judul:'Forkomtiknas Tandatangani MoU dengan Monash University untuk Riset TI Kesehatan', excerpt:'Penandatanganan nota kesepahaman ini membuka jalan bagi kolaborasi riset bersama, pertukaran akademik, dan pengembangan kurikulum TI Kesehatan berbasis kompetensi.', warna:'bg-slate-100 text-slate-700', featured:false },
+    ];
+
+    const KATEGORI_BERITA = ['Semua', 'Kebijakan', 'Riset', 'Regulasi', 'Opini Pakar', 'Teknologi', 'Press Release'];
+
+    // ── PAGE SECTIONS ─────────────────────────────────────────────────────────
+    const PageHero = () => (
+      <section className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-sm text-primary-200 mb-4">
+            <a href="index.html" className="hover:text-white transition-colors min-h-0">Beranda</a>
+            <span className="mx-2">/</span>
+            <span className="text-white">Berita &amp; Opini</span>
+          </div>
+          <h1 className="font-display font-bold text-3xl sm:text-4xl mb-3 animate-fade-in">Berita &amp; Opini</h1>
+          <p className="text-primary-100 max-w-2xl leading-relaxed">
+            Informasi terkini seputar kebijakan, regulasi, riset, dan opini pakar di bidang
+            Teknologi Informasi Kesehatan Indonesia.
+          </p>
+        </div>
+      </section>
+    );
+
+    const FeaturedArtikel = ({ artikel }) => (
+      <section className="max-w-7xl mx-auto px-4 mt-10">
+        <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-md transition-shadow lg:flex">
+          <div className="lg:w-2/5 h-64 lg:h-auto bg-gradient-to-br from-primary-100 to-teal-100 flex items-center justify-center text-7xl flex-shrink-0">
+            🏥
+          </div>
+          <div className="p-8 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3 mb-4 flex-wrap">
+                <span className={`text-xs font-semibold px-3 py-1 rounded-full ${artikel.warna}`}>{artikel.tipe}</span>
+                <span className="text-slate-400 text-sm">{artikel.tanggal}</span>
+                <span className="text-slate-400 text-sm">· {artikel.penulis}</span>
+                <span className="inline-flex bg-amber-50 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded-full min-h-0">Artikel Utama</span>
+              </div>
+              <h2 className="font-display font-bold text-2xl text-slate-900 leading-snug mb-4">{artikel.judul}</h2>
+              <p className="text-slate-600 leading-relaxed">{artikel.excerpt}</p>
+            </div>
+            <div className="mt-6">
+              <a href="#" className="inline-flex px-6 py-2.5 bg-primary-800 text-white rounded-xl text-sm font-semibold hover:bg-primary-900 transition-colors min-h-0">
+                Baca Selengkapnya
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+
+    const BeritaSection = ({ articles, activeKategori, setActiveKategori }) => (
+      <section className="max-w-7xl mx-auto px-4 mt-16">
+        <h2 className="font-display font-bold text-2xl text-slate-900 mb-6">Artikel Lainnya</h2>
+
+        {/* Filter chips */}
+        <div className="flex gap-2 overflow-x-auto pb-2 flex-wrap">
+          {KATEGORI_BERITA.map(k => (
+            <button
+              key={k}
+              onClick={() => setActiveKategori(k)}
+              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors min-h-0 ${
+                activeKategori === k
+                  ? 'bg-primary-800 text-white'
+                  : 'bg-white border border-slate-200 text-slate-600 hover:border-primary-300 hover:text-primary-800'
+              }`}
+            >
+              {k}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid */}
+        {articles.length === 0 ? (
+          <div className="text-center py-20">
+            <div className="text-5xl mb-4">🔍</div>
+            <p className="text-slate-500 mb-4">Artikel tidak ditemukan untuk kategori ini.</p>
+            <button
+              onClick={() => setActiveKategori('Semua')}
+              className="px-5 py-2 bg-primary-800 text-white rounded-lg text-sm font-semibold hover:bg-primary-900 transition-colors min-h-0"
+            >
+              Tampilkan Semua Artikel
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+            {articles.map(a => (
+              <article key={a.id} className="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                <div className="h-36 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-4xl flex-shrink-0">
+                  📰
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 mb-3 flex-wrap">
+                    <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${a.warna}`}>{a.tipe}</span>
+                    <span className="text-slate-400 text-xs">{a.tanggal}</span>
+                  </div>
+                  <h3 className="font-semibold text-slate-900 leading-snug mb-2 line-clamp-2">{a.judul}</h3>
+                  <p className="text-slate-500 text-sm line-clamp-3 flex-1">{a.excerpt}</p>
+                  <div className="flex items-center justify-between mt-3">
+                    <span className="text-xs text-slate-400">{a.penulis}</span>
+                    <a href="#" className="text-primary-700 text-sm font-semibold hover:underline min-h-0">
+                      Baca Selengkapnya →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+    );
+
+    const App = () => {
+      const [activeKategori, setActiveKategori] = useState('Semua');
+      const featured = ARTIKEL.find(a => a.featured);
+      const others = ARTIKEL.filter(a => !a.featured && (activeKategori === 'Semua' || a.kategori === activeKategori));
+      return (
+        <div>
+          <Header activePage="berita.html" />
+          <main className="pb-20">
+            <PageHero />
+            {featured && <FeaturedArtikel artikel={featured} />}
+            <BeritaSection
+              articles={others}
+              activeKategori={activeKategori}
+              setActiveKategori={setActiveKategori}
+            />
+          </main>
+          <Footer />
+        </div>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>

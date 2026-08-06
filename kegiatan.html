@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forkomtiknas.id — Kegiatan &amp; Acara</title>
+  <meta name="description" content="Portal resmi Forum Komunikasi Teknologi Informasi Kesehatan Nasional — pusat informasi, kolaborasi, dan publikasi TI Kesehatan Indonesia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Plus Jakarta Sans', 'sans-serif'] },
+        extend: {
+          colors: {
+            primary: { 50:'#eff6ff', 100:'#dbeafe', 200:'#bfdbfe', 600:'#2563eb', 700:'#1d4ed8', 800:'#1e40af', 900:'#1e3a8a' },
+            teal:    { 400:'#2dd4bf', 500:'#14b8a6', 600:'#0d9488', 700:'#0f766e' },
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s cubic-bezier(0.16,1,0.3,1) forwards',
+            'slide-up':'slideUp 0.5s cubic-bezier(0.16,1,0.3,1) forwards',
+          },
+          keyframes: {
+            fadeIn:  { '0%':{ opacity:'0', transform:'translateY(10px)' }, '100%':{ opacity:'1', transform:'translateY(0)' } },
+            slideUp: { '0%':{ opacity:'0', transform:'translateY(20px)' }, '100%':{ opacity:'1', transform:'translateY(0)' } },
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    * { touch-action: manipulation; }
+    button, a { min-height: 44px; display: inline-flex; align-items: center; }
+    body { -webkit-font-smoothing: antialiased; }
+    .line-clamp-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    .line-clamp-3 { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800">
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
+
+    const IconBase = ({ children, className }) => (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+           strokeLinejoin="round" className={className}>{children}</svg>
+    );
+    const MenuIcon = () => <IconBase><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></IconBase>;
+    const XIcon   = () => <IconBase><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></IconBase>;
+
+    const NAV_LINKS = [
+      { label:'Beranda',     href:'index.html' },
+      { label:'Tentang',     href:'tentang.html' },
+      { label:'Keanggotaan', href:'keanggotaan.html' },
+      { label:'Publikasi',   href:'publikasi.html' },
+      { label:'Kegiatan',    href:'kegiatan.html' },
+      { label:'Berita',      href:'berita.html' },
+      { label:'Kontak',      href:'kontak.html' },
+    ];
+
+    const Header = ({ activePage }) => {
+      const [open, setOpen] = useState(false);
+      return (
+        <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
+              <a href="index.html" className="flex items-center gap-3 min-h-0">
+                <div className="w-9 h-9 bg-primary-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-display font-bold text-sm">Fk</span>
+                </div>
+                <div className="leading-tight">
+                  <div className="font-display font-bold text-primary-900 text-sm">Forkomtiknas</div>
+                  <div className="text-xs text-slate-500 hidden sm:block">Forum TI Kesehatan Nasional</div>
+                </div>
+              </a>
+              <nav className="hidden md:flex items-center gap-1">
+                {NAV_LINKS.map(l => (
+                  <a key={l.href} href={l.href}
+                     className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors min-h-0 ${
+                       activePage === l.href
+                         ? 'bg-primary-50 text-primary-800'
+                         : 'text-slate-600 hover:text-primary-800 hover:bg-slate-100'
+                     }`}>{l.label}</a>
+                ))}
+                <a href="keanggotaan.html"
+                   className="ml-2 px-4 py-2 bg-primary-800 text-white rounded-lg text-sm font-semibold hover:bg-primary-900 transition-colors min-h-0">
+                  Daftar Anggota
+                </a>
+              </nav>
+              <button onClick={() => setOpen(!open)} className="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 min-h-0">
+                {open ? <XIcon /> : <MenuIcon />}
+              </button>
+            </div>
+          </div>
+          <div className={`md:hidden transition-all duration-300 overflow-hidden ${open ? 'max-h-96' : 'max-h-0'}`}>
+            <div className="px-4 py-3 border-t border-slate-100 space-y-1 bg-white">
+              {NAV_LINKS.map(l => (
+                <a key={l.href} href={l.href}
+                   className={`block px-3 py-2 rounded-lg text-sm font-medium min-h-0 ${
+                     activePage === l.href ? 'bg-primary-50 text-primary-800' : 'text-slate-600'
+                   }`}>{l.label}</a>
+              ))}
+              <a href="keanggotaan.html" className="block px-3 py-2 bg-primary-800 text-white rounded-lg text-sm font-semibold text-center mt-2 min-h-0">
+                Daftar Anggota
+              </a>
+            </div>
+          </div>
+        </header>
+      );
+    };
+
+    const Footer = () => (
+      <footer className="bg-primary-900 text-white mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <span className="font-display font-bold text-white text-sm">Fk</span>
+                </div>
+                <div>
+                  <div className="font-display font-bold text-white">Forkomtiknas.id</div>
+                  <div className="text-primary-200 text-xs">Forum Komunikasi TI Kesehatan Nasional</div>
+                </div>
+              </div>
+              <p className="text-slate-300 text-sm leading-relaxed max-w-sm">
+                Wadah kolaborasi nasional para praktisi, akademisi, pengembang teknologi,
+                dan regulator dalam mengakselerasi transformasi digital kesehatan Indonesia.
+              </p>
+              <div className="flex gap-2 mt-4 flex-wrap">
+                {['Twitter/X','LinkedIn','YouTube','Instagram'].map(s => (
+                  <a key={s} href="#" className="text-xs bg-white/10 px-3 py-1 rounded-full hover:bg-white/20 transition-colors min-h-0">{s}</a>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 className="font-semibold text-sm mb-3">Navigasi</h4>
+              <ul className="space-y-2">
+                {[['Beranda','index'],['Tentang Kami','tentang'],['Keanggotaan','keanggotaan'],
+                  ['Publikasi','publikasi'],['Kegiatan','kegiatan'],['Berita','berita'],['Kontak','kontak']
+                ].map(([label,slug]) => (
+                  <li key={slug}><a href={`${slug}.html`} className="text-slate-300 text-sm hover:text-white transition-colors">{label}</a></li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-sm mb-3">Kontak</h4>
+              <ul className="space-y-2 text-slate-300 text-sm">
+                <li>Sekretariat Forkomtiknas</li>
+                <li>Gedung Kemenkes RI, Jakarta</li>
+                <li>info@forkomtiknas.id</li>
+                <li>+62 21 5201590</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-slate-400 text-sm">
+            <span>© 2026 Forkomtiknas. Seluruh hak cipta dilindungi.</span>
+            <span>Kebijakan Privasi · Syarat Penggunaan</span>
+          </div>
+        </div>
+      </footer>
+    );
+
+    // ── DATA ──────────────────────────────────────────────────────────────────
+    const KEGIATAN = [
+      { tanggal:'12 Agt 2026', judul:'Seminar Nasional Interoperabilitas FHIR R4', deskripsi:'Seminar nasional membahas implementasi standar HL7 FHIR R4 dalam ekosistem SATUSEHAT Indonesia.', lokasi:'Hotel Pullman Jakarta · Hybrid', tipe:'Seminar', harga:'Gratis (Anggota) / Rp 350.000 (Umum)', status:'Pendaftaran Terbuka', statusWarna:'bg-green-100 text-green-700' },
+      { tanggal:'25 Agt 2026', judul:'Webinar: Implementasi AI Diagnostik di Puskesmas', deskripsi:'Diskusi teknis penggunaan AI untuk skrining dan diagnostik berbantuan komputer di layanan primer.', lokasi:'Online (Zoom Webinar)', tipe:'Webinar', harga:'Gratis', status:'Pendaftaran Terbuka', statusWarna:'bg-green-100 text-green-700' },
+      { tanggal:'5 Sep 2026', judul:'Workshop Standar HL7 untuk Pengembang Sistem RS', deskripsi:'Workshop hands-on implementasi HL7 v2 dan FHIR R4 dengan studi kasus nyata dari rumah sakit.', lokasi:'Gedung Kemenkes RI, Jakarta', tipe:'Workshop', harga:'Rp 500.000 (Anggota) / Rp 1.000.000 (Umum)', status:'Pendaftaran Terbuka', statusWarna:'bg-green-100 text-green-700' },
+      { tanggal:'15–16 Sep 2026', judul:'Rakornas Forkomtiknas 2026', deskripsi:'Rapat Koordinasi Nasional tahunan untuk merumuskan agenda transformasi digital kesehatan 2027.', lokasi:'Hotel Grand Sahid Jaya, Jakarta', tipe:'Konferensi', harga:'Undangan', status:'Undangan Resmi', statusWarna:'bg-blue-100 text-blue-700' },
+      { tanggal:'10 Okt 2026', judul:'Simposium Nasional Rekam Medis Elektronik', deskripsi:'Forum berbagi pengalaman implementasi EMR dari berbagai tipe fasyankes di seluruh Indonesia.', lokasi:'Bali Nusa Dua Convention Center · Hybrid', tipe:'Simposium', harga:'Rp 750.000 (Anggota) / Rp 1.500.000 (Umum)', status:'Segera Dibuka', statusWarna:'bg-amber-100 text-amber-700' },
+    ];
+
+    const GALERI = [
+      { judul:'Semnas Interoperabilitas 2025', emoji:'🏛️', peserta:'320 peserta' },
+      { judul:'Workshop FHIR R4 – Batch 3', emoji:'💻', peserta:'45 peserta' },
+      { judul:'Rakornas Forkomtiknas 2025', emoji:'🤝', peserta:'180 peserta' },
+      { judul:'Webinar Keamanan Data 2025', emoji:'🔒', peserta:'210 peserta' },
+      { judul:'Simposium EMR Nasional 2025', emoji:'📊', peserta:'280 peserta' },
+      { judul:'Workshop HL7 – Jakarta', emoji:'🏥', peserta:'60 peserta' },
+    ];
+
+    // ── PAGE SECTIONS ─────────────────────────────────────────────────────────
+    const PageHero = () => (
+      <section className="bg-primary-900 text-white py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-primary-300 text-sm mb-4">
+            <a href="index.html" className="hover:text-white transition-colors min-h-0">Beranda</a>
+            <span className="mx-2">/</span>
+            <span className="text-white">Kegiatan &amp; Acara</span>
+          </div>
+          <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl mb-4">
+            Kegiatan &amp; Acara
+          </h1>
+          <p className="text-primary-200 text-lg max-w-2xl leading-relaxed">
+            Seminar, webinar, workshop, dan konferensi nasional untuk mendorong
+            kolaborasi dan peningkatan kapasitas di bidang TI Kesehatan Indonesia.
+          </p>
+        </div>
+      </section>
+    );
+
+    const KegiatanListSection = () => (
+      <section className="max-w-7xl mx-auto px-4 mt-16">
+        <h2 className="font-display font-bold text-2xl text-slate-900 mb-6">Agenda Kegiatan</h2>
+        <div className="space-y-6">
+          {KEGIATAN.map((k, i) => (
+            <div key={i} className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-md transition-shadow">
+              <div className="flex items-start justify-between gap-4 flex-wrap mb-3">
+                <span className={`text-xs font-semibold px-3 py-1 rounded-full min-h-0 ${k.statusWarna}`}>{k.status}</span>
+                <span className="text-xs font-semibold bg-teal-50 text-teal-700 px-3 py-1 rounded-full min-h-0">{k.tipe}</span>
+              </div>
+              <h3 className="font-display font-bold text-xl text-slate-900">{k.judul}</h3>
+              <p className="text-slate-600 text-sm mt-2 leading-relaxed">{k.deskripsi}</p>
+              <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500">
+                <span>📅 {k.tanggal}</span>
+                <span>📍 {k.lokasi}</span>
+                <span>🎟️ {k.harga}</span>
+              </div>
+              <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
+                <div></div>
+                <button
+                  onClick={() => alert('Pendaftaran Anda sedang diproses. Konfirmasi akan dikirim ke email Anda.')}
+                  className="bg-primary-800 text-white rounded-lg px-6 py-2.5 text-sm font-semibold hover:bg-primary-900 transition-colors"
+                >
+                  Daftar Sekarang
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+
+    const GaleriSection = () => (
+      <section className="max-w-7xl mx-auto px-4 mt-20">
+        <h2 className="font-display font-bold text-2xl text-slate-900 mb-6">Galeri Kegiatan</h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {GALERI.map((g, i) => (
+            <div key={i} className="bg-slate-100 rounded-2xl overflow-hidden">
+              <div className="h-40 bg-gradient-to-br from-primary-100 to-teal-100 flex items-center justify-center text-6xl">
+                {g.emoji}
+              </div>
+              <div className="p-4">
+                <div className="font-semibold text-sm text-slate-900">{g.judul}</div>
+                <div className="text-xs text-slate-500 mt-1">{g.peserta}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+
+    const App = () => (
+      <div>
+        <Header activePage="kegiatan.html" />
+        <main>
+          <PageHero />
+          <KegiatanListSection />
+          <GaleriSection />
+        </main>
+        <Footer />
+      </div>
+    );
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
