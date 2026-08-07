@@ -42,6 +42,9 @@
   </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800">
+  <div style="background:#f59e0b;color:#1c1917;text-align:center;padding:10px 16px;font-size:14px;font-weight:600;z-index:9999;position:relative;">
+    ⚠️ WEBSITE DEMO — Konten pada halaman ini adalah contoh ilustratif dan tidak mencerminkan informasi aktual Forkomtiknas.
+  </div>
   <div id="root"></div>
   <script type="text/babel">
     const { useState } = React;
@@ -147,9 +150,9 @@
               <h4 className="font-semibold text-sm mb-3">Kontak</h4>
               <ul className="space-y-2 text-slate-300 text-sm">
                 <li>Sekretariat Forkomtiknas</li>
-                <li>Gedung Kemenkes RI, Jakarta</li>
-                <li>info@forkomtiknas.id</li>
-                <li>+62 21 5201590</li>
+                <li>[Alamat Sekretariat]</li>
+                <li>email@contoh.com</li>
+                <li>+62 xx xxxx-xxxx</li>
               </ul>
             </div>
           </div>
@@ -164,7 +167,7 @@
     // ── DATA ──────────────────────────────────────────────────────────────────
     const MANFAAT = [
       { ikon:'📚', judul:'Akses Publikasi Eksklusif', desc:'Whitepaper, panduan teknis, dan jurnal TI Kesehatan tanpa batas.' },
-      { ikon:'🤝', judul:'Jaringan Profesional', desc:'Terhubung dengan 1.200+ pakar TI Kesehatan dari seluruh Indonesia.' },
+      { ikon:'🤝', judul:'Jaringan Profesional', desc:'Terhubung dengan XXX+ pakar TI Kesehatan dari seluruh Indonesia.' },
       { ikon:'🎓', judul:'Pelatihan & Sertifikasi', desc:'Prioritas pendaftaran workshop, seminar, dan program sertifikasi kompetensi.' },
       { ikon:'🏅', judul:'Kartu Tanda Anggota Digital', desc:'KTA berbasis QR Code yang dapat diverifikasi secara online.' },
       { ikon:'📢', judul:'Advokasi Kebijakan', desc:'Berpartisipasi dalam perumusan kebijakan dan standar TI Kesehatan nasional.' },
@@ -178,10 +181,10 @@
     ];
 
     const DIREKTORI_SAMPLE = [
-      { nama:'Dr. Andika Pratama', keahlian:'Interoperabilitas FHIR', institusi:'RSUP Fatmawati', wilayah:'DKI Jakarta' },
-      { nama:'Ir. Sari Dewi, M.T.', keahlian:'Sistem Informasi RS', institusi:'Siloam Hospitals', wilayah:'Jawa Barat' },
-      { nama:'dr. Rizal Hakim, Sp.PD', keahlian:'Rekam Medis Elektronik', institusi:'RSUD Dr. Soetomo', wilayah:'Jawa Timur' },
-      { nama:'Dr. Maya Kusumawati', keahlian:'Health Informatics', institusi:'Universitas Gadjah Mada', wilayah:'DI Yogyakarta' },
+      { nama:'Nama Anggota 1', keahlian:'[Bidang Keahlian]', institusi:'[Institusi]', wilayah:'[Wilayah]' },
+      { nama:'Nama Anggota 2', keahlian:'[Bidang Keahlian]', institusi:'[Institusi]', wilayah:'[Wilayah]' },
+      { nama:'Nama Anggota 3', keahlian:'[Bidang Keahlian]', institusi:'[Institusi]', wilayah:'[Wilayah]' },
+      { nama:'Nama Anggota 4', keahlian:'[Bidang Keahlian]', institusi:'[Institusi]', wilayah:'[Wilayah]' },
     ];
 
     const getInitials = (nama) => {
@@ -336,7 +339,7 @@
           ))}
         </div>
         <p className="text-center text-slate-500 text-sm mt-6">
-          Menampilkan 4 dari 1.200+ anggota terverifikasi.{' '}
+          Menampilkan 4 dari XXX+ anggota terverifikasi.{' '}
           <a href="#portal-login" className="text-primary-700 font-semibold hover:underline min-h-0">Login untuk akses direktori lengkap.</a>
         </p>
       </section>

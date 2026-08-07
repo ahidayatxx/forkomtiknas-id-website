@@ -42,6 +42,9 @@
   </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800">
+  <div style="background:#f59e0b;color:#1c1917;text-align:center;padding:10px 16px;font-size:14px;font-weight:600;z-index:9999;position:relative;">
+    ⚠️ WEBSITE DEMO — Konten pada halaman ini adalah contoh ilustratif dan tidak mencerminkan informasi aktual Forkomtiknas.
+  </div>
   <div id="root"></div>
   <script type="text/babel">
     const { useState } = React;
@@ -147,9 +150,9 @@
               <h4 className="font-semibold text-sm mb-3">Kontak</h4>
               <ul className="space-y-2 text-slate-300 text-sm">
                 <li>Sekretariat Forkomtiknas</li>
-                <li>Gedung Kemenkes RI, Jakarta</li>
-                <li>info@forkomtiknas.id</li>
-                <li>+62 21 5201590</li>
+                <li>[Alamat Sekretariat]</li>
+                <li>email@contoh.com</li>
+                <li>+62 xx xxxx-xxxx</li>
               </ul>
             </div>
           </div>
@@ -163,18 +166,18 @@
 
     // ── DATA ──────────────────────────────────────────────────────────────────
     const MITRA = [
-      'Kementerian Kesehatan RI', 'BPJS Kesehatan', 'Kominfo RI',
-      'Ikatan Dokter Indonesia (IDI)', 'Persatuan Perawat Nasional Indonesia (PPNI)',
-      'Monash University Indonesia', 'UI Fakultas Kedokteran', 'RSUP Dr. Cipto Mangunkusumo',
+      '[Nama Mitra 1]', '[Nama Mitra 2]', '[Nama Mitra 3]',
+      '[Nama Mitra 4]', '[Nama Mitra 5]',
+      '[Nama Mitra 6]', '[Nama Mitra 7]', '[Nama Mitra 8]',
     ];
 
     const PENGURUS = [
-      { nama:'Dr. Budi Santoso, M.Kes', jabatan:'Ketua Umum', institusi:'RSUP Dr. Sardjito Yogyakarta' },
-      { nama:'dr. Siti Rahayu, Sp.KJ', jabatan:'Wakil Ketua I', institusi:'Kemenkes RI' },
-      { nama:'Ir. Ahmad Fauzi, M.T.', jabatan:'Sekretaris Jenderal', institusi:'Kominfo RI' },
-      { nama:'Dr. Rina Kusuma, S.Farm', jabatan:'Bendahara Umum', institusi:'BPJS Kesehatan' },
-      { nama:'Prof. Hendra Wijaya, Ph.D', jabatan:'Ketua Bidang Riset', institusi:'Universitas Indonesia' },
-      { nama:'dr. Dewi Lestari, M.Biomed', jabatan:'Ketua Bidang Keanggotaan', institusi:'IDI Pusat' },
+      { nama:'[Nama Pengurus]', jabatan:'Ketua Umum', institusi:'[Institusi]' },
+      { nama:'[Nama Pengurus]', jabatan:'Wakil Ketua I', institusi:'[Institusi]' },
+      { nama:'[Nama Pengurus]', jabatan:'Sekretaris Jenderal', institusi:'[Institusi]' },
+      { nama:'[Nama Pengurus]', jabatan:'Bendahara Umum', institusi:'[Institusi]' },
+      { nama:'[Nama Pengurus]', jabatan:'Ketua Bidang Riset', institusi:'[Institusi]' },
+      { nama:'[Nama Pengurus]', jabatan:'Ketua Bidang Keanggotaan', institusi:'[Institusi]' },
     ];
 
     // ── PAGE SECTIONS ─────────────────────────────────────────────────────────
@@ -201,24 +204,19 @@
             <h2 className="font-display font-bold text-2xl text-slate-900 mb-6">Latar Belakang &amp; Profil</h2>
             <div className="space-y-4 text-slate-600 leading-relaxed">
               <p>
-                Forkomtiknas didirikan pada tahun 2018 sebagai respons atas kebutuhan mendesak akan sebuah wadah
-                koordinasi lintas sektor di bidang Teknologi Informasi Kesehatan Indonesia. Berdiri di era awal
-                transformasi digital layanan kesehatan nasional, forum ini hadir untuk menjembatani para pemangku
-                kepentingan — dari klinisi, pengembang sistem, akademisi, hingga regulator — dalam satu ekosistem
-                kolaboratif yang terstruktur.
+                [Deskripsi latar belakang dan sejarah pendirian organisasi akan ditampilkan di sini.
+                Ini adalah contoh teks profil yang menjelaskan asal-usul dan konteks pembentukan forum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.]
               </p>
               <p>
-                Misi utama Forkomtiknas adalah mendorong penerapan standar TI Kesehatan yang konsisten, mendukung
-                interoperabilitas sistem informasi di seluruh fasilitas pelayanan kesehatan, dan menjadi pusat
-                referensi kebijakan serta praktik terbaik di bidang informatika kesehatan. Melalui berbagai program
-                pelatihan, seminar nasional, dan publikasi ilmiah, Forkomtiknas berkontribusi langsung pada
-                peningkatan kompetensi SDM digital kesehatan Indonesia.
+                [Deskripsi misi dan program utama organisasi akan ditampilkan di sini.
+                Ini adalah contoh teks yang menjelaskan kegiatan dan kontribusi forum terhadap
+                ekosistem TI Kesehatan nasional. Lorem ipsum dolor sit amet, consectetur adipiscing elit.]
               </p>
               <p>
-                Dengan jangkauan nasional yang mencakup lebih dari 34 provinsi, Forkomtiknas telah menjadi mitra
-                strategis Kementerian Kesehatan RI dalam pelaksanaan program SATUSEHAT, standardisasi HL7 FHIR,
-                serta penguatan tata kelola data kesehatan. Forum ini terus berkembang sebagai komunitas profesional
-                yang berkomitmen pada kemajuan ekosistem digital kesehatan Indonesia menuju standar internasional.
+                [Deskripsi jangkauan dan kemitraan strategis organisasi akan ditampilkan di sini.
+                Ini adalah contoh teks profil bagian ketiga. Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.]
               </p>
             </div>
           </div>
@@ -226,10 +224,10 @@
             <h3 className="font-display font-semibold text-primary-900 text-lg mb-6">Forkomtiknas dalam Angka</h3>
             <div className="space-y-4">
               {[
-                { label:'Anggota Aktif', nilai:'1.200+' },
-                { label:'Dokumen &amp; Publikasi', nilai:'450+' },
-                { label:'Kegiatan per Tahun', nilai:'24+' },
-                { label:'Tahun Berdiri', nilai:'8 Tahun' },
+                { label:'Anggota Aktif', nilai:'XXX+' },
+                { label:'Dokumen &amp; Publikasi', nilai:'XXX+' },
+                { label:'Kegiatan per Tahun', nilai:'XX+' },
+                { label:'Tahun Berdiri', nilai:'[X] Tahun' },
               ].map(s => (
                 <div key={s.label} className="flex items-center justify-between py-3 border-b border-primary-100 last:border-0">
                   <span className="text-slate-600 text-sm" dangerouslySetInnerHTML={{ __html: s.label }} />
@@ -323,7 +321,7 @@
             <p className="text-slate-300 text-sm leading-relaxed mb-2">
               Dokumen resmi yang mengatur tata kelola, hak, dan kewajiban anggota Forkomtiknas.
             </p>
-            <p className="text-slate-400 text-xs">Diterbitkan 2018 · Revisi terakhir 2024</p>
+            <p className="text-slate-400 text-xs">Diterbitkan [Tahun] · Revisi terakhir [Tahun]</p>
           </div>
           <div className="flex-shrink-0">
             <button

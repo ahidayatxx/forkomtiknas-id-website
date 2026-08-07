@@ -42,6 +42,9 @@
   </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800">
+  <div style="background:#f59e0b;color:#1c1917;text-align:center;padding:10px 16px;font-size:14px;font-weight:600;z-index:9999;position:relative;">
+    ⚠️ WEBSITE DEMO — Konten pada halaman ini adalah contoh ilustratif dan tidak mencerminkan informasi aktual Forkomtiknas.
+  </div>
   <div id="root"></div>
   <script type="text/babel">
     const { useState } = React;
@@ -147,9 +150,9 @@
               <h4 className="font-semibold text-sm mb-3">Kontak</h4>
               <ul className="space-y-2 text-slate-300 text-sm">
                 <li>Sekretariat Forkomtiknas</li>
-                <li>Gedung Kemenkes RI, Jakarta</li>
-                <li>info@forkomtiknas.id</li>
-                <li>+62 21 5201590</li>
+                <li>[Alamat Sekretariat]</li>
+                <li>email@contoh.com</li>
+                <li>+62 xx xxxx-xxxx</li>
               </ul>
             </div>
           </div>
@@ -163,20 +166,20 @@
 
     // ── DATA ──────────────────────────────────────────────────────────────────
     const KEGIATAN = [
-      { tanggal:'12 Agt 2026', judul:'Seminar Nasional Interoperabilitas FHIR R4', deskripsi:'Seminar nasional membahas implementasi standar HL7 FHIR R4 dalam ekosistem SATUSEHAT Indonesia.', lokasi:'Hotel Pullman Jakarta · Hybrid', tipe:'Seminar', harga:'Gratis (Anggota) / Rp 350.000 (Umum)', status:'Pendaftaran Terbuka', statusWarna:'bg-green-100 text-green-700' },
-      { tanggal:'25 Agt 2026', judul:'Webinar: Implementasi AI Diagnostik di Puskesmas', deskripsi:'Diskusi teknis penggunaan AI untuk skrining dan diagnostik berbantuan komputer di layanan primer.', lokasi:'Online (Zoom Webinar)', tipe:'Webinar', harga:'Gratis', status:'Pendaftaran Terbuka', statusWarna:'bg-green-100 text-green-700' },
-      { tanggal:'5 Sep 2026', judul:'Workshop Standar HL7 untuk Pengembang Sistem RS', deskripsi:'Workshop hands-on implementasi HL7 v2 dan FHIR R4 dengan studi kasus nyata dari rumah sakit.', lokasi:'Gedung Kemenkes RI, Jakarta', tipe:'Workshop', harga:'Rp 500.000 (Anggota) / Rp 1.000.000 (Umum)', status:'Pendaftaran Terbuka', statusWarna:'bg-green-100 text-green-700' },
-      { tanggal:'15–16 Sep 2026', judul:'Rakornas Forkomtiknas 2026', deskripsi:'Rapat Koordinasi Nasional tahunan untuk merumuskan agenda transformasi digital kesehatan 2027.', lokasi:'Hotel Grand Sahid Jaya, Jakarta', tipe:'Konferensi', harga:'Undangan', status:'Undangan Resmi', statusWarna:'bg-blue-100 text-blue-700' },
-      { tanggal:'10 Okt 2026', judul:'Simposium Nasional Rekam Medis Elektronik', deskripsi:'Forum berbagi pengalaman implementasi EMR dari berbagai tipe fasyankes di seluruh Indonesia.', lokasi:'Bali Nusa Dua Convention Center · Hybrid', tipe:'Simposium', harga:'Rp 750.000 (Anggota) / Rp 1.500.000 (Umum)', status:'Segera Dibuka', statusWarna:'bg-amber-100 text-amber-700' },
+      { tanggal:'[Tgl Bln Thn]', judul:'Nama Kegiatan Contoh 1', deskripsi:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh deskripsi kegiatan yang akan diselenggarakan oleh Forkomtiknas.', lokasi:'[Lokasi]', tipe:'Seminar', harga:'[Harga]', status:'Pendaftaran Terbuka', statusWarna:'bg-green-100 text-green-700' },
+      { tanggal:'[Tgl Bln Thn]', judul:'Nama Kegiatan Contoh 2', deskripsi:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh deskripsi kegiatan yang akan diselenggarakan oleh Forkomtiknas.', lokasi:'[Lokasi]', tipe:'Webinar', harga:'[Harga]', status:'Pendaftaran Terbuka', statusWarna:'bg-green-100 text-green-700' },
+      { tanggal:'[Tgl Bln Thn]', judul:'Nama Kegiatan Contoh 3', deskripsi:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh deskripsi kegiatan yang akan diselenggarakan oleh Forkomtiknas.', lokasi:'[Lokasi]', tipe:'Workshop', harga:'[Harga]', status:'Pendaftaran Terbuka', statusWarna:'bg-green-100 text-green-700' },
+      { tanggal:'[Tgl Bln Thn]', judul:'Nama Kegiatan Contoh 4', deskripsi:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh deskripsi kegiatan yang akan diselenggarakan oleh Forkomtiknas.', lokasi:'[Lokasi]', tipe:'Konferensi', harga:'[Harga]', status:'Undangan Resmi', statusWarna:'bg-blue-100 text-blue-700' },
+      { tanggal:'[Tgl Bln Thn]', judul:'Nama Kegiatan Contoh 5', deskripsi:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh deskripsi kegiatan yang akan diselenggarakan oleh Forkomtiknas.', lokasi:'[Lokasi]', tipe:'Simposium', harga:'[Harga]', status:'Segera Dibuka', statusWarna:'bg-amber-100 text-amber-700' },
     ];
 
     const GALERI = [
-      { judul:'Semnas Interoperabilitas 2025', emoji:'🏛️', peserta:'320 peserta' },
-      { judul:'Workshop FHIR R4 – Batch 3', emoji:'💻', peserta:'45 peserta' },
-      { judul:'Rakornas Forkomtiknas 2025', emoji:'🤝', peserta:'180 peserta' },
-      { judul:'Webinar Keamanan Data 2025', emoji:'🔒', peserta:'210 peserta' },
-      { judul:'Simposium EMR Nasional 2025', emoji:'📊', peserta:'280 peserta' },
-      { judul:'Workshop HL7 – Jakarta', emoji:'🏥', peserta:'60 peserta' },
+      { judul:'Nama Kegiatan Lampau 1', emoji:'🏛️', peserta:'XXX peserta' },
+      { judul:'Nama Kegiatan Lampau 2', emoji:'💻', peserta:'XXX peserta' },
+      { judul:'Nama Kegiatan Lampau 3', emoji:'🤝', peserta:'XXX peserta' },
+      { judul:'Nama Kegiatan Lampau 4', emoji:'🔒', peserta:'XXX peserta' },
+      { judul:'Nama Kegiatan Lampau 5', emoji:'📊', peserta:'XXX peserta' },
+      { judul:'Nama Kegiatan Lampau 6', emoji:'🏥', peserta:'XXX peserta' },
     ];
 
     // ── PAGE SECTIONS ─────────────────────────────────────────────────────────

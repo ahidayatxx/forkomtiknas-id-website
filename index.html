@@ -42,6 +42,9 @@
   </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800">
+  <div style="background:#f59e0b;color:#1c1917;text-align:center;padding:10px 16px;font-size:14px;font-weight:600;z-index:9999;position:relative;">
+    ⚠️ WEBSITE DEMO — Konten pada halaman ini adalah contoh ilustratif dan tidak mencerminkan informasi aktual Forkomtiknas.
+  </div>
   <div id="root"></div>
   <script type="text/babel">
     const { useState } = React;
@@ -147,9 +150,9 @@
               <h4 className="font-semibold text-sm mb-3">Kontak</h4>
               <ul className="space-y-2 text-slate-300 text-sm">
                 <li>Sekretariat Forkomtiknas</li>
-                <li>Gedung Kemenkes RI, Jakarta</li>
-                <li>info@forkomtiknas.id</li>
-                <li>+62 21 5201590</li>
+                <li>[Alamat Sekretariat]</li>
+                <li>email@contoh.com</li>
+                <li>+62 xx xxxx-xxxx</li>
               </ul>
             </div>
           </div>
@@ -163,28 +166,28 @@
 
     // ── DATA ──────────────────────────────────────────────────────────────────
     const STATS = [
-      { angka:'1.200+', label:'Anggota Profesional' },
-      { angka:'450+',   label:'Dokumen Tersedia' },
-      { angka:'24+',    label:'Kegiatan / Tahun' },
-      { angka:'2018',   label:'Tahun Berdiri' },
+      { angka:'XXX+',    label:'Anggota Profesional' },
+      { angka:'XXX+',    label:'Dokumen Tersedia' },
+      { angka:'XX+',     label:'Kegiatan / Tahun' },
+      { angka:'[Tahun]', label:'Tahun Berdiri' },
     ];
 
     const BERITA = [
-      { id:1, kategori:'Kebijakan', tanggal:'3 Agustus 2026',  judul:'Kemenkes Rilis Roadmap Interoperabilitas SATUSEHAT 2026–2030', excerpt:'Roadmap baru mencakup standar FHIR R4, keterhubungan antar-fasyankes, dan target 100% RS terintegrasi pada 2028.', warna:'bg-blue-100 text-blue-700' },
-      { id:2, kategori:'Riset',     tanggal:'28 Juli 2026',    judul:'Studi: Digitalisasi Rekam Medis Kurangi Kesalahan Medis 34%', excerpt:'Penelitian multicenter di 12 RSUD Indonesia menunjukkan penurunan signifikan adverse event pasca implementasi EMR.', warna:'bg-teal-100 text-teal-700' },
-      { id:3, kategori:'Regulasi',  tanggal:'20 Juli 2026',    judul:'BPJS Kesehatan Wajibkan Klaim Digital Berbasis INA-CBGs Mulai 2027', excerpt:'Seluruh fasyankes tier 3 diwajibkan menggunakan sistem klaim digital yang kompatibel dengan platform BPJS Kesehatan.', warna:'bg-purple-100 text-purple-700' },
+      { id:1, kategori:'Kebijakan', tanggal:'[Tanggal]', judul:'Judul Berita Contoh 1', excerpt:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh cuplikan berita yang akan ditampilkan di halaman beranda.', warna:'bg-blue-100 text-blue-700' },
+      { id:2, kategori:'Riset',     tanggal:'[Tanggal]', judul:'Judul Berita Contoh 2', excerpt:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh cuplikan berita yang akan ditampilkan di halaman beranda.', warna:'bg-teal-100 text-teal-700' },
+      { id:3, kategori:'Regulasi',  tanggal:'[Tanggal]', judul:'Judul Berita Contoh 3', excerpt:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh cuplikan berita yang akan ditampilkan di halaman beranda.', warna:'bg-purple-100 text-purple-700' },
     ];
 
     const AGENDA = [
-      { tanggal:'12 Agt', bulan:'2026', judul:'Seminar Nasional Interoperabilitas FHIR R4', lokasi:'Hotel Pullman Jakarta · Hybrid', tipe:'Seminar' },
-      { tanggal:'25 Agt', bulan:'2026', judul:'Webinar: Implementasi AI Diagnostik di Puskesmas', lokasi:'Online (Zoom)', tipe:'Webinar' },
-      { tanggal:'5 Sep',  bulan:'2026', judul:'Workshop Standar HL7 untuk Pengembang Sistem RS', lokasi:'Gedung Kemenkes RI, Jakarta', tipe:'Workshop' },
+      { tanggal:'[Tgl]', bulan:'[Bln]', judul:'Nama Kegiatan Contoh 1', lokasi:'[Lokasi]', tipe:'Seminar' },
+      { tanggal:'[Tgl]', bulan:'[Bln]', judul:'Nama Kegiatan Contoh 2', lokasi:'[Lokasi]', tipe:'Webinar' },
+      { tanggal:'[Tgl]', bulan:'[Bln]', judul:'Nama Kegiatan Contoh 3', lokasi:'[Lokasi]', tipe:'Workshop' },
     ];
 
     const DOKUMEN = [
-      { ikon:'📄', judul:'Panduan Teknis Interoperabilitas SATUSEHAT v2.1', kategori:'Panduan Teknis', tahun:'2026', unduhan:'1.247' },
-      { ikon:'📋', judul:'Whitepaper: Tata Kelola Data Kesehatan Nasional', kategori:'Whitepaper',     tahun:'2025', unduhan:'892' },
-      { ikon:'⚖️', judul:'Regulasi Penyelenggaraan Sistem Informasi Kesehatan (Permenkes No. 24/2022)', kategori:'Regulasi', tahun:'2022', unduhan:'3.410' },
+      { ikon:'📄', judul:'Nama Dokumen Contoh 1', kategori:'Panduan Teknis', tahun:'[Tahun]', unduhan:'XXX' },
+      { ikon:'📋', judul:'Nama Dokumen Contoh 2', kategori:'Whitepaper',     tahun:'[Tahun]', unduhan:'XXX' },
+      { ikon:'⚖️', judul:'Nama Dokumen Contoh 3', kategori:'Regulasi',       tahun:'[Tahun]', unduhan:'XXX' },
     ];
 
     // ── PAGE SECTIONS ─────────────────────────────────────────────────────────
@@ -236,9 +239,9 @@
           <div>
             <div className="font-semibold text-amber-900 mb-1">Pengumuman Penting</div>
             <p className="text-amber-800 text-sm leading-relaxed">
-              Rapat Koordinasi Nasional (Rakornas) Forkomtiknas 2026 akan diselenggarakan pada{' '}
-              <strong>15–16 September 2026</strong> di Jakarta. Pendaftaran peserta telah dibuka.{' '}
-              <a href="kegiatan.html" className="underline font-semibold min-h-0">Daftar sekarang →</a>
+              [Teks pengumuman resmi akan ditampilkan di sini. Ini adalah contoh tampilan pengumuman
+              pada website Forkomtiknas.]{' '}
+              <a href="kegiatan.html" className="underline font-semibold min-h-0">Lihat kegiatan →</a>
             </p>
           </div>
         </div>
@@ -324,7 +327,7 @@
     const CTAKeanggotaanSection = () => (
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
         <div className="bg-gradient-to-r from-primary-900 to-teal-700 rounded-3xl p-10 text-center text-white">
-          <h2 className="font-display font-bold text-2xl sm:text-3xl mb-4">Bergabunglah dengan 1.200+ Profesional TI Kesehatan</h2>
+          <h2 className="font-display font-bold text-2xl sm:text-3xl mb-4">Bergabunglah dengan XXX+ Profesional TI Kesehatan</h2>
           <p className="text-primary-100 max-w-xl mx-auto mb-8 leading-relaxed">
             Akses eksklusif ke publikasi riset, agenda kegiatan, direktori pakar, dan jaringan profesional TI Kesehatan terluas di Indonesia.
           </p>

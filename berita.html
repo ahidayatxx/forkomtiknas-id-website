@@ -42,6 +42,9 @@
   </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800">
+  <div style="background:#f59e0b;color:#1c1917;text-align:center;padding:10px 16px;font-size:14px;font-weight:600;z-index:9999;position:relative;">
+    ⚠️ WEBSITE DEMO — Konten pada halaman ini adalah contoh ilustratif dan tidak mencerminkan informasi aktual Forkomtiknas.
+  </div>
   <div id="root"></div>
   <script type="text/babel">
     const { useState } = React;
@@ -147,9 +150,9 @@
               <h4 className="font-semibold text-sm mb-3">Kontak</h4>
               <ul className="space-y-2 text-slate-300 text-sm">
                 <li>Sekretariat Forkomtiknas</li>
-                <li>Gedung Kemenkes RI, Jakarta</li>
-                <li>info@forkomtiknas.id</li>
-                <li>+62 21 5201590</li>
+                <li>[Alamat Sekretariat]</li>
+                <li>email@contoh.com</li>
+                <li>+62 xx xxxx-xxxx</li>
               </ul>
             </div>
           </div>
@@ -163,12 +166,12 @@
 
     // ── DATA ──────────────────────────────────────────────────────────────────
     const ARTIKEL = [
-      { id:1, tipe:'Berita', kategori:'Kebijakan', tanggal:'3 Agt 2026', penulis:'Tim Redaksi', judul:'Kemenkes Rilis Roadmap Interoperabilitas SATUSEHAT 2026–2030', excerpt:'Roadmap baru menetapkan target 100% rumah sakit tipe A dan B terintegrasi platform SATUSEHAT pada akhir 2028, dengan milestone kuartalan yang terukur dan dukungan teknis dari Kemenkes.', warna:'bg-blue-100 text-blue-700', featured:true },
-      { id:2, tipe:'Riset', kategori:'Riset', tanggal:'28 Jul 2026', penulis:'Dr. Rina Kusuma', judul:'Digitalisasi Rekam Medis Kurangi Kesalahan Medis 34% di 12 RSUD', excerpt:'Studi multicenter yang melibatkan 12 RSUD di 6 provinsi menunjukkan penurunan signifikan kejadian adverse event pascaimplementasi sistem EMR terintegrasi.', warna:'bg-teal-100 text-teal-700', featured:false },
-      { id:3, tipe:'Regulasi', kategori:'Regulasi', tanggal:'20 Jul 2026', penulis:'Tim Redaksi', judul:'BPJS Kesehatan Wajibkan Klaim Digital Berbasis INA-CBGs Mulai 2027', excerpt:'Seluruh fasilitas kesehatan tingkat lanjutan diwajibkan menggunakan sistem klaim digital yang kompatibel dengan API BPJS Kesehatan mulai 1 Januari 2027.', warna:'bg-purple-100 text-purple-700', featured:false },
-      { id:4, tipe:'Opini', kategori:'Opini Pakar', tanggal:'15 Jul 2026', penulis:'Prof. Hendra Wijaya, Ph.D', judul:'Mengapa Indonesia Perlu Standar Data Kesehatan Nasional yang Kuat', excerpt:'Dalam ekosistem digital kesehatan yang semakin kompleks, standarisasi data bukan sekadar pilihan teknis — ia adalah fondasi keselamatan pasien dan efisiensi sistem.', warna:'bg-amber-100 text-amber-700', featured:false },
-      { id:5, tipe:'Berita', kategori:'Teknologi', tanggal:'10 Jul 2026', penulis:'Tim Redaksi', judul:'Pilot Project Telemedicine di 50 Puskesmas Terpencil Berhasil Kurangi Rujukan 28%', excerpt:'Program telemedicine berbasis satelit yang didukung Kemenkes dan Kominfo berhasil menjangkau 50 puskesmas di daerah 3T dengan hasil yang melampaui target awal.', warna:'bg-green-100 text-green-700', featured:false },
-      { id:6, tipe:'Press Release', kategori:'Press Release', tanggal:'5 Jul 2026', penulis:'Humas Forkomtiknas', judul:'Forkomtiknas Tandatangani MoU dengan Monash University untuk Riset TI Kesehatan', excerpt:'Penandatanganan nota kesepahaman ini membuka jalan bagi kolaborasi riset bersama, pertukaran akademik, dan pengembangan kurikulum TI Kesehatan berbasis kompetensi.', warna:'bg-slate-100 text-slate-700', featured:false },
+      { id:1, tipe:'Berita', kategori:'Kebijakan', tanggal:'[Tanggal]', penulis:'[Penulis]', judul:'Judul Artikel Utama Contoh', excerpt:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh cuplikan artikel utama yang akan ditampilkan secara featured di halaman berita Forkomtiknas.', warna:'bg-blue-100 text-blue-700', featured:true },
+      { id:2, tipe:'Riset', kategori:'Riset', tanggal:'[Tanggal]', penulis:'[Penulis]', judul:'Judul Artikel Contoh 2', excerpt:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh cuplikan artikel berita yang akan ditampilkan di halaman berita.', warna:'bg-teal-100 text-teal-700', featured:false },
+      { id:3, tipe:'Regulasi', kategori:'Regulasi', tanggal:'[Tanggal]', penulis:'[Penulis]', judul:'Judul Artikel Contoh 3', excerpt:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh cuplikan artikel berita yang akan ditampilkan di halaman berita.', warna:'bg-purple-100 text-purple-700', featured:false },
+      { id:4, tipe:'Opini', kategori:'Opini Pakar', tanggal:'[Tanggal]', penulis:'[Penulis]', judul:'Judul Artikel Contoh 4', excerpt:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh cuplikan artikel opini pakar yang akan ditampilkan di halaman berita.', warna:'bg-amber-100 text-amber-700', featured:false },
+      { id:5, tipe:'Berita', kategori:'Teknologi', tanggal:'[Tanggal]', penulis:'[Penulis]', judul:'Judul Artikel Contoh 5', excerpt:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh cuplikan artikel berita yang akan ditampilkan di halaman berita.', warna:'bg-green-100 text-green-700', featured:false },
+      { id:6, tipe:'Press Release', kategori:'Press Release', tanggal:'[Tanggal]', penulis:'[Penulis]', judul:'Judul Artikel Contoh 6', excerpt:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ini adalah contoh cuplikan siaran pers yang akan ditampilkan di halaman berita.', warna:'bg-slate-100 text-slate-700', featured:false },
     ];
 
     const KATEGORI_BERITA = ['Semua', 'Kebijakan', 'Riset', 'Regulasi', 'Opini Pakar', 'Teknologi', 'Press Release'];
